@@ -24,11 +24,24 @@ decisions through a natural, farmer-first interface.
 ---
 
 ## 🛠️ Tech Stack
-- **Models**: LLaVA, Whisper, LoRA adapters
-- **RAG**: FAISS
-- **APIs**: OpenWeatherMap, Market price APIs, Gov. scheme DB
-- **Deployment**: (Kaggle, Colab, HuggingFace Spaces, or Cloud)
-- **Frontend**: Gradio
+### Core Components
+- **Fine-tuning & Adaptation**  
+  - LoRA adapters with **Hugging Face Transformers**, **PEFT**, and **BitsAndBytes**  
+  - Efficient parameter tuning for **domain-specific agriculture knowledge**  
+
+- **Retrieval & Reasoning**  
+  - **FAISS** for similarity search and document retrieval  
+  - **RAG (Retrieval-Augmented Generation)** to ground answers in reliable data sources  
+
+- **Speech & Translation**  
+  - **Whisper AI** → Speech-to-Text  
+  - **Coqui TTS** → Text-to-Speech  
+  - **IndicTrans2 / NLLB** → Multilingual support for Indian languages  
+
+- **Deployment**  
+  - **Quantized models (AWQ/GGUF)** for efficient performance on **edge devices**  
+  - Optimized for rural and low-connectivity zones  
+
 
 ---
 
@@ -43,11 +56,14 @@ decisions through a natural, farmer-first interface.
 
 
 ## 🎨 Architecture Diagram
-<img width="2921" height="2000" alt="farmnaxx-diagram" src="https://github.com/user-attachments/assets/529d902b-209f-4521-9013-a93eda34af23" />
+<img width="1068" height="664" alt="image" src="https://github.com/user-attachments/assets/6e1f1fb5-c4d2-4f42-8699-7717f8bf2d23" />
 
 
-## NoteBook Links
-https://www.kaggle.com/code/ashishnewar/farmnaxx-final/edit
+
+## Links
+- Kaggle - https://www.kaggle.com/code/ashishnewar/farmnaxx-final/edit
+- Documentation - [farmnaxx__Copy_.pdf](https://github.com/user-attachments/files/21840797/farmnaxx__Copy_.pdf)
+
 
 
 
