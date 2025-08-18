@@ -1,4 +1,4 @@
-# 🌱 Farmnaxx – AI Advisor for Farmers
+# Farmnaxx – AI Advisor for Farmers
 
 Agriculture in India faces uncertainties from weather, crop diseases, market fluctuations, and complex policies, making reliable decision
 support critical. We present Farmnaxx, a human-aligned agentic AI advisor
@@ -13,17 +13,17 @@ decisions through a natural, farmer-first interface.
 
 ---
 
-## 🚀 Features
-- 🌾 Crop disease detection using fine-tuned **LLaVA** models (image input).
-- 🎙️ Voice query support via **Whisper** for multilingual farmers.
-- ☁️ Real-time weather forecasts with OpenWeatherMap API.
-- 📊 Market price and government scheme retrieval through APIs.
-- 🤖 Agentic orchestration with **RAG** to reduce hallucinations.
-- 🌍 Multilingual support for farmer-first accessibility.
+## Features
+- Crop disease detection using fine-tuned **LLaVA** models (image input).
+- Voice query support via **Whisper** for multilingual farmers.
+- Real-time weather forecasts with OpenWeatherMap API.
+- Market price and government scheme retrieval through APIs.
+- Agentic orchestration with **RAG** to reduce hallucinations.
+- Multilingual support for farmer-first accessibility.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 ### Core Components
 - **Fine-tuning & Adaptation**  
   - LoRA adapters with **Hugging Face Transformers**, **PEFT**, and **BitsAndBytes**  
@@ -45,23 +45,22 @@ decisions through a natural, farmer-first interface.
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```
-├── notebooks/ # Kaggle or Colab notebooks
-├── adapters/ # folder for 2 adapter
-├── dataset/ # All the dataset 
-├── README.md # Project documentation
+├── notebooks
+├── adapters
+├── dataset
+├── README.md
 
 ```
 
 
-## 🎨 Architecture Diagram
+## Architecture Diagram
 <img width="1068" height="664" alt="image" src="https://github.com/user-attachments/assets/6e1f1fb5-c4d2-4f42-8699-7717f8bf2d23" />
 
 
-
 ## Links
-- Kaggle - https://www.kaggle.com/code/ashishnewar/farmnaxx-final/edit
+- Kaggle - [Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets)
 - Documentation - [farmnaxx__Copy_.pdf](https://github.com/user-attachments/files/21840797/farmnaxx__Copy_.pdf)
 
 
