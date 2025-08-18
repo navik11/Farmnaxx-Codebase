@@ -1,70 +1,117 @@
-# Farmnaxx – AI Advisor for Farmers
+# Farmnaxx-Codebase
 
-Agriculture in India faces uncertainties from weather, crop diseases, market fluctuations, and complex policies, making reliable decision
-support critical. We present Farmnaxx, a human-aligned agentic AI advisor
-that combines multimodal inputs (text, voice, images) with retrieval-augmented
-generation (RAG) to deliver grounded, explainable, and multilingual answers.
-Farmnaxx integrates fine-tuned LLaVA models for disease detection and crop
-recommendation, Whisper for speech queries, and APIs for weather, prices,
-and government schemes. By dynamically selecting tools and grounding
-outputs in factual data, the system reduces hallucinations and improves trust.
-Designed for accessibility, Farmnaxx empowers farmers to make informed
-decisions through a natural, farmer-first interface.
-
----
-
-## Features
-- Crop disease detection using fine-tuned **LLaVA** models (image input).
-- Voice query support via **Whisper** for multilingual farmers.
-- Real-time weather forecasts with OpenWeatherMap API.
-- Market price and government scheme retrieval through APIs.
-- Agentic orchestration with **RAG** to reduce hallucinations.
-- Multilingual support for farmer-first accessibility.
-
----
-
-## Tech Stack
-### Core Components
-- **Fine-tuning & Adaptation**  
-  - LoRA adapters with **Hugging Face Transformers**, **PEFT**, and **BitsAndBytes**  
-  - Efficient parameter tuning for **domain-specific agriculture knowledge**  
-
-- **Retrieval & Reasoning**  
-  - **FAISS** for similarity search and document retrieval  
-  - **RAG (Retrieval-Augmented Generation)** to ground answers in reliable data sources  
-
-- **Speech & Translation**  
-  - **Whisper AI** → Speech-to-Text  
-  - **Coqui TTS** → Text-to-Speech  
-  - **IndicTrans2 / NLLB** → Multilingual support for Indian languages  
-
-- **Deployment**  
-  - **Quantized models (AWQ/GGUF)** for efficient performance on **edge devices**  
-  - Optimized for rural and low-connectivity zones  
-
+Farmnaxx is a human-aligned agentic AI system for agriculture that leverages multimodal LLMs (text, image, audio) to support farmers with actionable insights.  
+It combines fine-tuned LLaVA models, LoRA adapters, and external tools (Weather, Price, Schemes) to deliver context-aware, human-aligned responses.  
 
 ---
 
 ## Repository Structure
-```
-├── notebooks
-├── adapters
-├── dataset
-├── README.md
 
-```
+- **adapters/** → Fine-tuned LoRA adapters  
+  - llava-1.5-7b-finetuned-for-cddm → Plant disease detection (image + text)  
+  - llava-1.5-7b-finetuned-for-cr_fq_ay → Crop recommendation, farmer queries, yield prediction  
+  - llava-next-7b-qlora-sft-plant-disease → Experimental  
+  - qwen2_5vl-7b-qlora-sft-plant-disease → Experimental  
 
+- **datasets/** → Agricultural datasets  
+  - AgrcultureDataset.csv → Yield dataset  
+  - Crop_recommendation.csv → Soil & climate crop recommendation  
+  - Farmer_call_query_dataset.csv → Farmer queries + expert responses  
+  - CDDM Dataset (not in repo due to size) → Plant disease image dataset  
 
-## Architecture Diagram
-<img width="1068" height="664" alt="image" src="https://github.com/user-attachments/assets/6e1f1fb5-c4d2-4f42-8699-7717f8bf2d23" />
+- **figures/** → Diagrams & architecture  
+  - agentic_tooling.png  
+  - data_preprocessing.png  
+  - farmnaxx_io_diagram.png  
+  - low_level_model_diagram.png  
+  - model_fine_tune.png  
 
+- **notebooks/**  
+  - fine-tuning-llava-1-5-7b-on-agricultural-datasets.ipynb → End-to-end fine-tuning notebook  
 
-## Links
-- Kaggle - [Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets)
-- Documentation - [farmnaxx-Doc](./farmnaxx-Doc.pdf)
+- **farmnaxx-Doc.pdf** → Full technical documentation  
 
+---
 
+## Key Components
 
+### LoRA Adapters
+![Fine-tuning](figures/model_fine_tune.png)  
+- CDDM Adapter → Trained for plant disease classification from leaf images.  
+- CR_FQ_AY Adapter → Trained for crop recommendation, farmer queries, yield estimation.  
+- Support for hot-swapping adapters at inference.  
 
+### Datasets
+![Data Preprocessing](figures/data_preprocessing.png)  
+- CDDM Dataset → Multimodal (text + image) leaf disease dataset.  
+- Crop Recommendation Dataset → Soil nutrient & weather → crop mapping.  
+- Farmer Call Query Dataset → Question-answer format from real farmer queries.  
+- Agriculture Yield Dataset → Crop yield estimation per district/state.  
 
+### Tooling Layer
+![Agentic Tooling](figures/agentic_tooling.png)  
+- Weather Tool → Real-time weather (OpenWeather API).  
+- Price Tool → Market prices (data.gov.in).  
+- Schemes Tool → Govt. schemes stored & retrieved via RAG.  
 
+### I/O Flow
+![I/O Flow](figures/farmnaxx_io_diagram.png)  
+- Handles text, audio, and images.  
+- Whisper → Preprocesses audio.  
+- Deep Translator → Converts to/from English.  
+- Unified query passed to Farmnaxx Model.  
+- Output translated back to user’s language.  
+
+---
+
+## Tech Stack
+
+- LLMs & VLMs: LLaVA-1.5, Qwen2.5-VL  
+- Fine-tuning: LoRA (via Unsloth, QLoRA)  
+- Frameworks: PyTorch, Hugging Face, Transformers  
+- Datasets: Multimodal + structured agricultural data  
+- Tooling APIs: OpenWeather, data.gov.in  
+- Multilingual Support: Whisper AI + Deep Translator  
+- RAG (Retrieval-Augmented Generation): Govt. schemes & knowledge storage  
+
+---
+
+## Features
+
+- Multimodal Input (Text + Image + Audio)  
+- Plant Disease Detection (leaf image → diagnosis)  
+- Crop Recommendation (soil + weather → best crop)  
+- Farmer Query Resolution (real call query dataset)  
+- Agricultural Yield Prediction (tons/hectare)  
+- Tool Integration (weather, price, schemes)  
+- Multilingual (auto-detection & translation)  
+
+---
+
+## System Architecture
+
+![Low-level Model](figures/low_level_model_diagram.png)  
+
+1. User input (text/audio/image) → Preprocessing (Whisper + Translator)  
+2. Farmnaxx model + LoRA adapter selected (based on query type)  
+3. Model reasoning + external tools if needed  
+4. Unified response → Back-translated to user’s language  
+
+---
+
+## Documentation
+
+Full technical writeup in:  
+[farmnaxx-Doc.pdf](./farmnaxx-Doc.pdf)
+
+---
+
+## Future Work
+
+- Extend multilingual support to more Indian languages  
+- Hybrid Knowledge Graph + RAG for agriculture  
+- On-device deployment for low-resource settings  
+
+---
+
+Farmnaxx: Empowering Farmers with AI-driven Insights.
