@@ -61,7 +61,7 @@ decisions through a natural, farmer-first interface.
 
 ## Links
 - Kaggle - [Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets)
-- Documentation - [farmnaxx__Copy_.pdf](https://github.com/user-attachments/files/21840797/farmnaxx__Copy_.pdf)
+- Documentation - [farmnaxx-Doc](./farmnaxx-Doc.pdf)
 
 
 
