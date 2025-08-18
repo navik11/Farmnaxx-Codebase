@@ -46,7 +46,7 @@ decisions through a natural, farmer-first interface.
 <img width="2921" height="2000" alt="farmnaxx-diagram" src="https://github.com/user-attachments/assets/529d902b-209f-4521-9013-a93eda34af23" />
 
 
-## References
+## NoteBook Links
 https://www.kaggle.com/code/ashishnewar/farmnaxx-final/edit
 
 
