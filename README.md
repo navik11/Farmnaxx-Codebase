@@ -44,7 +44,7 @@ It combines fine-tuned LLaVA models, LoRA adapters, and external tools (Weather,
 ## Key Components
 
 ### LoRA Adapters
-![Fine-tuning](figures/model_fine_tune.png)  
+![Fine-tuning](./figures/finetuning_diagram.png)  
 - CDDM Adapter → Trained for plant disease classification from leaf images.  
 - CR_FQ_AY Adapter → Trained for crop recommendation, farmer queries, yield estimation.  
 - Support for hot-swapping adapters at inference.  
