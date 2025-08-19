@@ -1,8 +1,7 @@
 # Farmnaxx-Codebase
 
-[Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets/notebook)
-
-[Model Inference](https://www.kaggle.com/code/krisgg/farmnaxx-finall)  
+Notebook 1: [Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets/notebook)   
+Notebook 2: [Farmnaxx- Model Inference](https://www.kaggle.com/code/krisgg/farmnaxx-finall)  
 
 
 Farmnaxx is a human-aligned agentic AI system for agriculture that leverages multimodal LLMs (text, image, audio) to support farmers with actionable insights.  
