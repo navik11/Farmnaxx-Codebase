@@ -3,6 +3,7 @@
 Notebook 1: [Fine-Tuning Llava 1.5 7B on Agricultural Datasets](https://www.kaggle.com/code/sachidanandnavik/fine-tuning-llava-1-5-7b-on-agricultural-datasets/notebook)   
 Notebook 2: [Farmnaxx- Model Inference](https://www.kaggle.com/code/krisgg/farmnaxx-finall)  
 
+![Farmnaxx Architecture](./figures/farmnaxx_diagram.png)
 
 Farmnaxx is a human-aligned agentic AI system for agriculture that leverages multimodal LLMs (text, image, audio) to support farmers with actionable insights.  
 It combines fine-tuned LLaVA models, LoRA adapters, and external tools (Weather, Price, Schemes) to deliver context-aware, human-aligned responses.  
@@ -47,6 +48,8 @@ It combines fine-tuned LLaVA models, LoRA adapters, and external tools (Weather,
 ![Fine-tuning](./figures/finetuning_diagram.png)  
 - CDDM Adapter → Trained for plant disease classification from leaf images.  
 - CR_FQ_AY Adapter → Trained for crop recommendation, farmer queries, yield estimation.  
+
+![Adapter hot-swapping](./figures/hotswap.png)
 - Support for hot-swapping adapters at inference.  
 
 ### Datasets
